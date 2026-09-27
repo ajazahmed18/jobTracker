@@ -1,0 +1,18 @@
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+    "username": "ajaz",
+    "email": "ajaz@gmail.com",
+    "password": "123456"
+}
+
+###
+
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "email": "ajaz@gmail.com",
+    "password": "123456"
+}
