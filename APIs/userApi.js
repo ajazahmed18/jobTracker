@@ -93,16 +93,15 @@ userApp.post("/login", async (req, res) => {
         }
 
         // Create JWT token
-        const token = jwt.sign(
-            {
-                email: user.email
-            },
-            "mysecretkey",
-            {
-                expiresIn: "1h"
-            }
-        );
-
+      const token=jwt.sign(
+    {
+        email:user.email
+    },
+    process.env.JWT_SECRET,
+    {
+        expiresIn:"1h"
+    }
+);
         // Send token
         res.send({
             message: "Login successful",
@@ -121,21 +120,33 @@ userApp.post("/login", async (req, res) => {
 });
 
 
+
+
+
 // Export router
 module.exports = userApp;
 
 
 
 //verifying jwt token and accessing profile (using middleware)
-userApp.get("/profile", verifyToken, async (req, res) => {
+userApp.get("/profile",verifyToken,async(req,res)=>{
+    try{
 
-    const user = await UserModel.findOne({
-        email: req.user.email
-    });
+        const user=await UserModel.findOne({
+            email:req.user.email
+        }).select("-password");
 
-    res.send({
-        message: "Profile accessed successfully",
-        user: user
-    });
+        res.send({
+            message:"Profile accessed successfully",
+            user:user
+        });
 
+    }catch(err){
+
+        res.status(500).send({
+            message:"Error fetching profile",
+            error:err.message
+        });
+
+    }
 });

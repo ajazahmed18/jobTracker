@@ -1,18 +1,63 @@
+### REGISTER
 POST http://localhost:3000/users/register
 Content-Type: application/json
 
 {
-    "username": "ajaz",
-    "email": "ajaz@gmail.com",
-    "password": "123456"
+    "username":"ajaz",
+    "email":"ajaz@gmail.com",
+    "password":"123456"
 }
 
 ###
 
+### LOGIN
 POST http://localhost:3000/users/login
 Content-Type: application/json
 
 {
-    "email": "ajaz@gmail.com",
-    "password": "123456"
+    "email":"ajaz@gmail.com",
+    "password":"123456"
 }
+
+###
+
+### PROFILE
+GET http://localhost:3000/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFqYXpAZ21haWwuY29tIiwiaWF0IjoxNzkwNjEwNzc1LCJleHAiOjE3OTA2MTQzNzV9.TbkkaMe-pi7EQcjS7xyD4r2-IJoo7flMDJHfzZ9Zfmg
+
+###
+
+### CREATE JOB
+POST http://localhost:3000/jobs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFqYXpAZ21haWwuY29tIiwiaWF0IjoxNzkwNjEwNzc1LCJleHAiOjE3OTA2MTQzNzV9.TbkkaMe-pi7EQcjS7xyD4r2-IJoo7flMDJHfzZ9Zfmg
+Content-Type: application/json
+
+{
+    "company":"Microsoft",
+    "position":"Frontend Developer",
+    "status":"Applied",
+    "location":"Hyderabad",
+    "salary":60000
+}
+
+
+###
+###
+GET http://localhost:3000/jobs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFqYXpAZ21haWwuY29tIiwiaWF0IjoxNzkwNjEwNzc1LCJleHAiOjE3OTA2MTQzNzV9.TbkkaMe-pi7EQcjS7xyD4r2-IJoo7flMDJHfzZ9Zfmg
+
+
+###
+###
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "email":"ajaz@gmail.com",
+    "password":"123456"
+}
+
+###
+###
+GET http://localhost:3000/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFqYXpAZ21haWwuY29tIiwiaWF0IjoxNzkwNjIzMTgzLCJleHAiOjE3OTA2MjY3ODN9.CQ9ky0wg86d9yMGychgwR3O24E2xD0p61-FRh8SrH8g
